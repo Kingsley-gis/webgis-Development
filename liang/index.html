@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./echart/jquery.js"></script>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
+
+  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+    integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous" />
+
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+  <!-- echarts -->
+  <script src="./echart/echarts.min.js"></script>
+  <!-- mapbox内库 -->
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css" rel="stylesheet" />
+  <!-- 自定义css文件 -->
+  <link rel="stylesheet" href="./style/style.css">
+  <title>粤港澳大湾区通勤总览</title>
+</head>
+
+
+<!-- 身体文件 -->
+
+<body>
+  <nav class="navbar navbar-fixed-top row" id="navigator" style="transition:0.3s ease;text-align:center">
+    <div class="col-xs-1"></div>
+    <div class="logobox.col-xs-2"><img src="../images/slider/szu logo0.png" alt="" style="height: 35px;width:35px;">
+    </div>
+    <!-- <div class="col-xs-2 navfont">通勤可视化小组</div> -->
+    <div class="container col-xs-6 row">
+      <div class="col-xs-3 navfont navitem"> <a href="../index3.html"><button class="btnnav" id="fbtn">首页</button></a>
+      </div>
+      <div class="col-xs-3 navfont navitem"><button class="btnnav" id="sbtn"> <a href="../xiana/index.html"> <button
+              class="btnnav" id="sbtn">四大湾区轨道可视化</button></a> </div>
+      <div class="col-xs-3 navfont naviselected"><a href="index.html"><button class="btnnav btnactive"
+            id="tbtn">大湾区通勤总览</button></a> </div>
+      <div class="col-xs-3 navfont navitem"> <a href="https://www.baidu.com"> <a href="../Wu/index.html"> <button
+              class="btnnav" id="fbtn">具体城市</button></a> </div>
+    </div>
+  </nav>
+  <div class="container-fluid" style="background-color: #2c343c;">
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <!-- 内容：col-xs-10 -->
+      <div class="col-xs-10 row">
+        <!-- 大标题 -->
+        <div class="hero bg-gba">
+          <div class="content" id="thecontent">
+            <h1 class="title" style="color:white;">
+              大湾区
+            </h1>
+            <div class="desc" style="color:white;text-align:center">
+              <p style="font-size: 12px;">
+                湾区是由一个海湾或若干相连海湾、港湾、邻近岛屿共同组成的重点发展地区，具有得天独厚的地理优势。世界上公认的湾区有纽约湾区、旧金山湾区、东京湾区。作为世界先进滨海发展的显著标志，湾区具有高效的资源配置能力、强大的集聚外溢功能和发达的国际交往网络。
+              </p>
+              <p style="font-size: 12px;text-align:center">
+                2017年3月，国务院总理李克强在政府工作报告中首次提出“粤港澳大湾区”概念，并逐渐上升为国家战略。2018年，粤港澳三地发布的《深化粤港澳合作推进大湾区建设框架协议》提出构建高效便捷的现代综合交通运输体系。据此，研究粤港澳大湾区轨道交通体系的发展对建设世界级湾区、支撑粤港澳大湾区建设、发挥湾区核心竞争力和辐射带动作用具有积极意义。
+              </p>
+            </div>
+            <ul class="nav">
+              <li class="nav-item">
+                <div class="glyphicon glyphicon-info-sign" style="text-align:center;font-size:30px">
+                  <div class="text" style="font-size: 20px;top:10px">
+                    基本信息
+                  </div>
+                </div>
+              </li>
+              <li>
+              <li class="nav-item">
+                <div class="glyphicon glyphicon-road" style="text-align:center;font-size:30px;">
+                  <div class="text" style="font-size: 20px;top:10px">
+                    通勤总览
+                  </div>
+                </div>
+              </li>
+              </li>
+              <li>
+              <li class="nav-item">
+                <div class="glyphicon glyphicon-equalizer" style="text-align:center;font-size:30px">
+                  <div class="text" style="font-size: 20px;top:10px">
+                    六大指标
+                  </div>
+                </div>
+              </li>
+              </li>
+              <li>
+              <li class="nav-item">
+                <div class="glyphicon glyphicon-adjust" style="text-align:center;font-size:30px">
+                  <div class="text" style="font-size: 20px;top:10px">
+                    流动湾区
+                  </div>
+                </div>
+              </li>
+              </li>
+              <li>
+              <li class="nav-item">
+                <div class="glyphicon glyphicon-signal" style="text-align:center;font-size:30px">
+                  <div class="text" style="font-size: 20px;top:10px">
+                    发展趋势
+                  </div>
+                </div>
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="divide-bar" style="border-bottom: 1px solid hsla(0,0%,100%,.1);"></div>
+
+        <!-- 总体概览 -->
+
+        <div class="block block" id="info-block">
+          <header class="header">
+            <div class="glyphicon glyphicon-info-sign icon" style="text-align:center;font-size:30px">
+
+            </div>
+            <h2 class="title2">基本信息</h2>
+          </header>
+          <div class="content">
+            <div class="panel">
+              <div class="info">
+                <div class="item">
+                  <div class="item-title">常住人口</div>
+                  <div class="item-value">1344万人</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">日均通勤人口</div>
+                  <div class="item-value">2512万人</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">面积</div>
+                  <div class="item-value">2140平方公里</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">人均GDP</div>
+                  <div class="item-value">20.35万元人民币</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">进出口总值</div>
+                  <div class="item-value">4317.12亿美元</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">地区生产总值</div>
+                  <div class="item-value">26927.09亿元</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">出口总额</div>
+                  <div class="item-value">2422.75亿美元</div>
+                </div>
+                <div class="item">
+                  <div class="item-title">进口总额</div>
+                  <div class="item-value">1894.37亿美元</div>
+                </div>
+
+
+              </div>
+              <div class="bgmap" id="map-base">
+                <img src="./city-map.png" alt="大湾区地图" style="width: 569px;height:367px">
+              </div>
+
+            </div>
+            <div class="footer">
+              数据来源：2019年大湾区各区国民经济和社会统计公报
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- 通勤总览 -->
+
+
+
+        <div class="block block" id="overview">
+          <header class="header" style="margin-bottom: 0px;">
+            <div class="glyphicon glyphicon-road icon" style="text-align:center;font-size:30px">
+
+            </div>
+            <h2 class="text title2">通勤总览
+        </div>
+        </header>
+        <div class="desc2">
+          <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+              <p
+                style="text-align: center;padding:40px 0px;padding-top:0px;padding-bottom:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                通勤出行是人们日常生活的重要环节。2020年、2021年中规院牵头发布《全国主要城市通勤监测报告》，通勤距离、通勤时间等反映市民出行体验的指标成为备受关注的话题，引发了共鸣。
+              </p>
+              <br>
+              <p
+                style="text-align: center;padding:20px 100px;padding-top:0px;padding-bottom:50px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                2021年6月，中规院重磅发布《粤港澳大湾区通勤监测报告》（以下简称《报告》）。借助互联网地图位置服务数据，构建六大通勤指标对大湾区11个城市、66个区县、630个镇街进行评估，从多维度、多视角认识大湾区通勤特征。
+              </p>
+            </div>
+            <div class="col-xs-2"></div>
+          </div>
+
+
+        </div>
+        <div class="content">
+          <div class="panel row" style="background-color: #222833;margin:0">
+            <div class="placeholder -overview mapview col-xs-8" id="overviewMap">
+              <p style="text-align: center;;padding-top:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                大湾区OD量总览
+              </p>
+              <div id='odlegend' class='legend3'>
+                <h5>日OD总量<span style="font-size: 10px;">(次)</span></h5>
+                <div><span style='background-color: #FF4500'></span>17,443,00</div>
+                <div><span style='background-color: #FFD400'></span>9,000,000</div>
+                <div><span style='background-color: #FFF800'></span>7,500,000</div>
+                <div><span style='background-color: #B7E194'></span>5,000,000</div>
+                <div><span style='background-color: #95D4DA'></span>2,500,000</div>
+                <div><span style='background-color: #8FD1E8'></span>1,000,000</div>
+              </div>
+              <!-- <p style="text-align: center;margin:0px;padding:0px;font-size:12px;color:hsla(0,0%,100%,.6);"> 
+                    单位:人次
+                  </p> -->
+            </div>
+            <div class="info2 col-xs-4 row" style="margin-left: 20px;">
+              <div class="info-header2 col-xs-12" style="border-bottom: 1px solid hsla(0,0%,100%,.1);">
+
+                <div class="item2" style="">
+                  <div class="item-title">日均通勤总量</div>
+                  <div class="item-value">257.32万人</div>
+                </div>
+                <div class="item2" style="">
+                  <div class="item-title">湾区排行</div>
+                  <div class="item-value">1</div>
+                </div>
+              </div>
+              <!-- <div class="pie-charts col-xs-12 row" style="height: 60vh;"> -->
+              <div id="rankingpie" class="col-xs-12" style="height: 40vh;"></div>
+              <div id="consistent" class="col-xs-12" style="height: 40vh;"></div>
+
+
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- 六大指标 -->
+
+
+        <div class="block block" id="multidimension" style="padding-top: 0;">
+          <div class="content">
+            <div class="panel2">
+              <header class="header">
+                <div class="glyphicon glyphicon-equalizer icon" style="text-align:center;font-size:30px">
+
+                </div>
+                <h2 class="text title2">六大指标
+            </div>
+            </header>
+            <div class="desc2" style="border-bottom: 1px solid hsla(0,0%,100%,.1);">
+              <p style="text-align: center;padding:20px 100px;padding-top:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                在城市绿色低碳发展导向下，通勤距离、通勤时间、轨道服务通勤比重等指标备受关注。
+              </p>
+              <p style="text-align: center;padding:20px 100px;padding-top:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                《大湾区通勤监测报告》借助百度地图慧眼时空大数据，构建多维度、多视角的通勤监测体系，对城市空间结构的效率与交通服务水平进行研究。从通勤范围、空间匹配、通勤距离、幸福通勤、公共交通服务、轨道覆盖六个方面，为粤港澳大湾区构建一套通勤监测与评估体系，引入活力、创新等话题，客观呈现大湾区典型通勤特征，为更好地认识大湾区城市空间结构、践行绿色低碳通勤提供支撑。
+              </p>
+            </div>
+            <ul class="tabs" style="list-style: none;">
+              <li class="tab active" id="fortune">幸福通勤</li>
+              <li class="tab" id="distance">通勤距离</li>
+              <li class="tab" id="match">空间分离</li>
+              <li class="tab" id="range">通勤范围</li>
+              <li class="tab" id="cover">地铁覆盖</li>
+              <li class="tab" id="radius">公共交通服务</li>
+            </ul>
+            <div class="tabs-content row">
+              <div class="twocharts col-xs-5 row" id=t-chart>
+
+                <div class="info-header2 col-xs-12">
+
+                  <div class="item2" style="height:10vh">
+                    <div class="item-title">日均通勤总量</div>
+                    <div class="item-value">257.32万人</div>
+                  </div>
+                  <div class="item2" style="">
+                    <div class="item-title">湾区排行</div>
+                    <div class="item-value">1</div>
+                  </div>
+                </div>
+                <div class="row col-xs-12">
+                  <div class="panel2 col-xs-12">
+                    <ul class="district-chart-legend col-xs-4">
+                      <li class="district">
+                        <span class="dis-num">1</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname1">江门市</div>
+                          <div class="dis-value" id="cityvalue1">0.68</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">2</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname2">肇庆市</div>
+                          <div class="dis-value" id="cityvalue2">0.66</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">3</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname3">佛山市</div>
+                          <div class="dis-value" id="cityvalue3">0.62</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">4</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname4">惠州市</div>
+                          <div class="dis-value" id="cityvalue4">0.62</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">5</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname5">中山市</div>
+                          <div class="dis-value" id="cityvalue5">0.57</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">6</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname6">珠海市</div>
+                          <div class="dis-value" id="cityvalue6">0.53</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">7</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname7">东莞市</div>
+                          <div class="dis-value" id="cityvalue7">0.51</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">8</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="cityname8">深圳市</div>
+                          <div class="dis-value" id="cityvalue8">0.47</div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div id="bar-chart1" class="col-xs-8" style="height:35vh"></div>
+                  </div>
+
+                </div>
+                <div class="row col-xs-12">
+                  <div class="panel2 col-xs-12">
+                    <ul class="district-chart-legend col-xs-4">
+                      <li class="district">
+                        <span class="dis-num">1</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname1">恩平县</div>
+                          <div class="dis-value" id="districtvalue1">0.72</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">2</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname2">怀集县</div>
+                          <div class="dis-value" id="districtvalue2">0.68</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">3</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname3">顺德区</div>
+                          <div class="dis-value" id="districtvalue3">0.68</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">4</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname4">封开县</div>
+                          <div class="dis-value" id="districtvalue4">0.67</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">5</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname5">四会区</div>
+                          <div class="dis-value" id="districtvalue5">0.67</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">6</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname6">广宁县</div>
+                          <div class="dis-value" id="districtvalue6">0.66</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">7</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname7">开平县</div>
+                          <div class="dis-value" id="districtvalue7">0.65</div>
+                        </div>
+                      </li>
+                      <li class="district">
+                        <span class="dis-num">8</span>
+                        <div class="dis-text">
+                          <div class="dis-name" id="districtname8">惠东县</div>
+                          <div class="dis-value" id="districtvalue8">0.65</div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div id="bar-chart2" class="col-xs-8" style="height:35vh"></div>
+                  </div>
+
+                </div>
+
+              </div>
+              <div id="map1" class="col-xs-7" style="height:80vh;margin-left:30px;padding-left:0px"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 流动湾区 -->
+
+        <div class="block block" id="comparemap" style="padding-top:0">
+          <div class="content">
+            <div class="panel2">
+
+              <header class="header">
+                <div class="glyphicon glyphicon-adjust icon" style="text-align:center;font-size:30px"></div>
+                <h2 class="text title2" style="padding-top: 10px;">流动湾区</h2>
+              </header>
+              <div class="desc2" style="border-bottom: 1px solid hsla(0,0%,100%,.1);margin-bottom:50px">
+                <p
+                  style="text-align: center;padding:20px 100px;padding-top:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                  以街镇间的通勤联系强度和紧密程度作为依据，划分通勤集群。跨界通勤集群现象较普遍，主要位于广-佛、深-莞、深-惠、莞-惠、珠-中边界。大湾区跨市通勤空间分布特征存在差异，可分为“中心区-中心区”、“边界地区-边界地区”两种典型特征。密切的通勤联系背后体现的是各城市在产业、经济方面的分工与协作。
+                </p>
+              </div>
+              <p style="text-align: center;;padding-top:0px;font-size: 20px;
+                        font-weight: 600;
+                        color: #fff;margin-bottom:0">
+                联系强度
+              </p>
+              <p
+                style="text-align: right;;padding-top:0px;font-size:12px;padding:0px;margin:0px;color:hsla(0,0%,100%,.6);">
+                (数据收集自手机移动信令数据)
+              </p>
+              <div class="buttons row " style="text-align: center;margin-bottom:10px">
+                <div class="col-xs-3"></div>
+                <button type="button" class="btn btn-first btn-sm active col-xs-1" id="firstod">最大</button>
+                <button type="button" class="btn  btn-second btn-sm active  col-xs-1" id="secondod">较大</button>
+                <button type="button" class="btn btn-third btn-sm active col-xs-1" id="thirdod">大</button>
+                <button type="button" class="btn btn-forth btn-sm active col-xs-1" id="forthod">中等</button>
+                <button type="button" class="btn btn-fifth btn-sm active col-xs-1" id="fifthod">较弱</button>
+                <button type="button" class="btn btn-sixth btn-sm active col-xs-1" id="sixthod">弱</button>
+                <div class="col-xs-3"></div>
+              </div>
+              <div class="buttons row " style="text-align: center;margin-bottom:10px">
+                <div class="col-xs-2"></div>
+
+                <button type="button" class="btn btn-third btn-sm active col-xs-2" id="buffer1">建立最大联系强度5km缓冲区</button>
+
+                <div class="col-xs-4"></div>
+                <button type="button" class="btn btn-third btn-sm active col-xs-2" id="buffer2">建立最大联系强度5km缓冲区</button>
+                <div class="col-xs-2"></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <p style="text-align: center;;padding-top:0px;font-size: 20px;
+                        font-weight: 600;
+                        color: #fff;">
+                    工作日区域联系分布
+                  </p>
+                  <div class="odmap1" id="odmap1" style="height:70vh;"></div>
+                  <div id='odlegend' class='legend2'>
+                    <h5>日交流强度<span style="font-size: 10px;">(次)</span></h5>
+                    <div><span style='background-color: red'></span>25,000,000</div>
+                    <div><span style='background-color: #ABD256'></span>10,000,000</div>
+                    <div><span style='background-color: #7BCCC4'></span>7,500,000</div>
+                    <div><span style='background-color: #EFAC28'></span>5,000,000</div>
+                    <div><span style='background-color: #9D5525'></span>2,500,000</div>
+                    <div><span style='background-color: #FF66FF'></span>1,000,000</div>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <p style="text-align: center;;padding-top:0px;font-size: 20px;
+                        font-weight: 600;
+                        color: #fff;">
+                    周末区域联系分布
+                  </p>
+                  <div class="odmap2" id="odmap2" style="height:70vh;"></div>
+                  <div id='odlegend' class='legend2'>
+                    <h5>日交流强度<span style="font-size: 10px;">(次)</span></h5>
+                    <div><span style='background-color: blue'></span>20,000,000</div>
+                    <div><span style='background-color: #77518B'></span>8,400,000</div>
+                    <div><span style='background-color: #E17696'></span>6,300,000</div>
+                    <div><span style='background-color: #D09B71'></span>4,200,000</div>
+                    <div><span style='background-color: #E9C9B2'></span>2,100,000</div>
+                    <div><span style='background-color: #FFFFCC'></span>1,000,000</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- 发展趋势 -->
+
+        <div class="block block" id="trendblock" style="padding-top:0">
+          <div class="content">
+            <div class="panel2">
+              <header class="header">
+                <div class="glyphicon glyphicon-adjust icon" style="text-align:center;font-size:30px"></div>
+                <h2 class="text title2" style="padding-top: 10px;">发展趋势</h2>
+              </header>
+              <div class="desc2" style="border-bottom: 1px solid hsla(0,0%,100%,.1);margin-bottom:50px">
+                <p
+                  style="text-align: center;padding:20px 100px;padding-top:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                  国家发改委明确提出，京津冀、长三角、粤港澳大湾区三大区域“十四五”期间计划新开工城际和市域（郊）铁路共1万公里左右。到2025年，基本形成城市群1—2小时出行圈和都市圈1小时通勤圈，轨道上的京津冀、长三角和粤港澳大湾区基本建成。
+                </p>
+                <p
+                  style="text-align: center;padding:20px 100px;padding-top:0px;font-size:14px;color:hsla(0,0%,100%,.6);">
+                  “这对于整个大湾区经济、社会、生活的一体化有重要促进作用。”暨南大学经济学院教授刘金山指出，环大湾区城市可以通过交通网络和整个大湾区核心城市连接，人流、物流等各种要素的流动也都更加方便。
+                </p>
+              </div>
+              <div class="row row-full">
+                <div class="title3">大湾区通勤发展<span>
+                    <p style="text-align: center;;padding-top:0px;font-size: 20px;
+                        font-weight: 600;
+                        color: #fff;">
+                      大湾区24小时通勤量实时监测
+                    </p>
+                  </span></div>
+                <p
+                  style="text-align: right;;padding-top:0px;font-size:12px;padding:0px;margin:0px;color:hsla(0,0%,100%,.6);">
+                  (该部分数据非真实情况)
+                </p>
+                <div class="cell full-cell">
+                  <div class="side">
+                    <div class="chart-card">
+                      <h5 class="chart-card-title" style="margin-bottom: 0;">
+                        湾区20年日均通勤量变化
+                      </h5>
+                      <div class="chart chart-line">
+                        <div class="chart" id="zhexiantu"></div>
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="chart-card">
+                      <h5 class="chart-card-title" style="margin-bottom:0">
+                        出行工具占比
+                      </h5>
+                      <div class="chart">
+                        <div class="chart" id="treemap">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="middle" style="padding-left: 10px;padding-right:10px">
+
+                    <div class="heat" id="heatmap"></div>
+                    <div class="map-overlay top">
+                      <div class="map-overlay-inner" style="background-color:#2d333d;width: 80%;">
+                        <p class="rangetitle">近24小时通勤量实时监测<span id="thistime"
+                            style="font-size:12px;margin: 0;text-align:left">&nbsp;&nbsp;&nbsp; 0点</span></p>
+                        <label id="month"></label>
+                        <input id="slider" type="range" min="0" max="23" step="1" value="0" style="text-align: left;">
+
+                        <div class="map-overlay-inner">
+                          <div id="legend" class="legend">
+                            <div class="bar"></div>
+                            <div>通勤强度 (次)</div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="side">
+                    <h5 class="chart-card-title" style="margin-bottom: 0;">
+                      相关政策
+                    </h5>
+                    <div class="card card-full">
+                      <ul class="list">
+                        <li class="itemlist"><a
+                            href="https://baijiahao.baidu.com/s?id=1686837522655287018&wfr=spider&for=pc" target="blank"
+                            class="linkword">发改委:到2025年实现粤港澳大湾区都市圈1小时通勤</a> </li>
+                        <li class="itemlist"><a
+                            href="https://baijiahao.baidu.com/s?id=1627345755248685489&wfr=spider&for=pc" target="blank"
+                            class="linkword">央视网:大湾区交通运输发展将出实施意见</a></li>
+                        <li class="itemlist"><a
+                            href="https://baijiahao.baidu.com/s?id=1633376266388319603&wfr=spider&for=pc" target="blank"
+                            class="linkword">乐居网：交通与政策双重利好粤港澳大湾区</a></li>
+                        <li class="itemlist"><a href="https://www.sohu.com/a/452653724_682294"
+                            class="linkword">轨道交通网：交通行业又一重磅政策发布</a></li>
+                        <li class="itemlist"><a href="http://www.jxgztv.com/xgxw11/382533.jhtml?lfknophdbaimglno"
+                            target="blank" class="linkword">赣州新闻：《若干政策措施》解读（二）完善融入大湾区交通网络</a></li>
+                        <li class="itemlist"><a
+                            href="http://www.51zhengce.com/index.php?m=content&c=index&a=show&catid=8&id=286235"
+                            target="blank" class="linkword">中华人民共和国交通运输部：《关于珠江水运助力粤港澳大湾区建设的实施意见》政策解读</a></li>
+                        <li class="itemlist"><a href="https://www.thepaper.cn/newsDetail_forward_3443588" target="blank"
+                            class="linkword">澎湃新闻：交通与政策双重利好粤港澳大湾区入境游</a></li>
+                        <li class="itemlist"><a
+                            href="https://baijiahao.baidu.com/s?id=1666716879456779134&wfr=spider&for=pc" target="blank"
+                            class="linkword">新浪财经：大湾区再迎政策大利好</a></li>
+                        <li class="itemlist"><a
+                            href="https://baijiahao.baidu.com/s?id=1675187882954717733&wfr=spider&for=pc" target="blank"
+                            class="linkword">央广网：粤港澳大湾区打造城际交通网 摁下发展快速键</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <div class="col-xs-1"></div>
+  </div>
+  </div>
+
+
+
+
+  </div>
+
+
+
+
+  </div>
+  <script>
+    window.addEventListener('scroll', function () {
+      let t = $('body, html').scrollTop();   // 目前监听的是整个body的滚动条距离
+      if (t != 0) {
+        $('#navigator').addClass('navigator-active')
+      } else {
+        $('#navigator').removeClass('navigator-active')
+      }
+    })
+
+  </script>
+  <script src='javascript/turf.min.js'></script>
+  <script src="javascript/barchart1.js"></script>
+  <!-- 通勤总览地图 -->
+  <script src="javascript/overviewMap.js"></script>
+  <!-- 通勤总览饼图 -->
+  <script src="javascript/pies.js"></script>
+  <!-- 六大指标地图 -->
+  <script src="javascript/Firstmap.js"></script>
+  <!-- 六大指标事件监听器 -->
+  <script src="javascript/tabber.js"></script>
+  <!-- OD线图层 -->
+  <script src="javascript/odmapp1.js"></script>
+  <script src="javascript/odmapp2.js"></script>
+  <!-- OD量按钮事件监听 -->
+  <script src="javascript/changeOD.js"></script>
+  <!-- 矩形树图 -->
+  <script src="javascript/treemap.js"></script>
+  <script src="javascript/zhexiantu.js"></script>
+  <script src="javascript/heatmap.js"></script>
+  <!-- 缓冲区 -->
+  <script src="javascript/addbuffer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+	<!--地图使用css-->
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+	<!--图表使用css-->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+	<!--模板使用css-->
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/all.min.css">
+	<link rel="stylesheet" href="static/css/line-awesome.min.css">
+	<link rel="stylesheet" href="static/css/magnific-popup.css">
+	<link rel="stylesheet" href="static/css/animate.css">
+	<link rel="stylesheet" href="static/css/owl.min.css">
+	<link rel="stylesheet" href="static/css/odometer.css">
+	<link rel="stylesheet" href="static/css/nice-select.css">
+	<link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body class="bg--dark-15">
+	<!-- ==========加载画面Preloader Starts Here========== -->
+	<div class="overlayer">
+		<div class="loader">
+			<div class="loader-inner"> </div>
+		</div>
+	</div>
+	<!--回到顶部按钮-->
+	<div class="toTopBtn"> <i class="fas fa-angle-up"> </i> </div>
+	<div class="overlay"> </div>
+	<!-- ==========Preloader Ends Here========== -->
+	<!-- 导航栏Header Section -->
+	<header class="header-section">
+		<div class="container" style="height:100px;width: 100%;">
+			<div class="header-area" style="display:inline-block;width: 100%;">
+				<div class="logo me-auto" style="margin:0px;float: left;;">
+					<a href="">
+						<img src="../images/slider/szu logo0.png" alt="footer" style="width:60px; height:60px">
+					</a>
+				</div>
+				<div style="width: 75%;float: left;padding-top: 10px;">
+					<ul class="menu"
+						style="position:relative; font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji">
+						<li>
+							<a href="../index3.html"> 首页</a>
+						</li>
+						<li>
+							<a href="../xiana/index.html"> 四大湾区轨道交通可视化</a>
+						</li>
+						<li>
+							<a href="../liang/index.html"> 粤港澳大湾区通勤总览</a>
+						</li>
+						<li>
+							<a href="index.html"> 大湾区各城市通行</a>
+							<ul class="submenu">
+								<li>
+									<a href="index.html"> 深圳市</a>
+								</li>
+								<li>
+									<a href="">开发中......</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="header-bar d-lg-none ms-3">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section -->
+	<!-- Hero Section -->
+	<section id="home" class="hero-section-4 overflow-hidden bg_img bg_contain"
+		data-img="./assets/images/shapes-bg/hero-shape-4.png"
+		style="background-image: url(https://city-report.oss-cn-shenzhen.aliyuncs.com/bayarea/images/bg-sz.jpg);">
+		<div class="container">
+			<div class="hero-wrapper">
+				<div class="hero-content cl-white mw--585 wow fadeInUp">
+					<h1 class="hero-title"> 深圳市</h1>
+					<p class="hero-txt">
+						深圳市是中国南部海滨城市，毗邻香港，是中国经济特区、中国改革开放和现代化建设先行先试的地区。发展目标为全球标杆城市。深圳海陆空口岸齐全，是拥有口岸数量最多，出入境人员最多、车流量最大的内地城市。
+						高新技术产业、现代物流业、金融服务业、文化产业是深圳的四大支柱产业。
+						目前正在着力建设“综合性国家科学中心”，以及5G、人工智能、网络空间科学与技术、生命信息与生物医药实验室等重大创新载体。
+					</p>
+				</div>
+				<div class="hero-thumb d-none d-lg-block wow fadeInLeft">
+					<img src="https://city-report.oss-cn-shenzhen.aliyuncs.com/bayarea/images/bg-sz.jpg" alt="hero"
+						width="650px" height="500px">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero Section -->
+	<!-- About Section -->
+	<section class="about-section pt-60 pb-60">
+		<div class="container">
+			<div class="cryptiam__ico">
+				<div class="row gy-5 align-items-center">
+					<div class="col-lg-6">
+						<div class="about--content wow fadeInUp">
+							<div class="section-header mb-4">
+								<h5 class="section-name cl-10"> ABOUT SHENZHEN</h5>
+								<h2 class="section-title text-white fw-normal">
+									基本信息
+								</h2>
+							</div>
+							<p class="mb-4">
+
+							</p>
+							<ul class="about--list">
+
+								<li>
+									<div class="item-title"> 常住人口</div>
+									<div class="item-value"> 1344 万人</div>
+								</li>
+								<li>
+									<div class="item-title"> 面积</div>
+									<div class="item-value"> 2140 平方公里</div>
+								</li>
+								<li>
+									<div class="item-title"> 人均 GDP</div>
+									<div class="item-value"> 20.35 万元人民币</div>
+								</li>
+								<li>
+									<div class="item-title"> 进出口总值</div>
+									<div class="item-value"> 4317.12 亿美元</div>
+								</li>
+								<li>
+									<div class="item-title"> 地区生产总值（GDP）</div>
+									<div class="item-value"> 26927.09 亿元</div>
+								</li>
+								<li>
+									<div class="item-title"> 出口总额</div>
+									<div class="item-value"> 2422.75 亿美元</div>
+								</li>
+								<li>
+									<div class="item-title"> 进口总额</div>
+									<div class="item-value"> 1894.37 亿美元</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6" style="height: 374px; width: 526px">
+						<div class="about--thumb video-style wow fadeInLeft"
+							style="visibility: visible; animation-name: fadeInLeft;">
+							<img src="static/image/sz_in_bay.png" alt="about">
+						</div>
+					</div>
+					<p style="color: white"> 数据来源：2019 年深圳市国民经济和社会发展统计公报</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About Section -->
+	<template>
+		<div ref="projectMap" style="width:1000px;height:500px;"></div>
+	</template>
+	<!-- Structure Section -->
+	<section class="structure-section pt-60 pb-60">
+		<div class="container">
+			<div class="row pb-5 gy-5">
+				<div id="map" class="col-lg-6 col-xl-7 wow fadeInRight">
+					<style>
+						#map {
+							position: relative;
+							visibility: visible;
+							width: 650px;
+							height: 650px;
+						}
+					</style>
+					<style>
+						.mapboxgl-popup {
+							max-width: 400px;
+							font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+							font-style: black;
+						}
+					</style>
+					<script>
+						mapboxgl.accessToken = 'pk.eyJ1Ijoic2hlcnlsd29vMjAwMCIsImEiOiJja3d0MW1kbnYxYzc4Mm9qdjUyd2kwMWFqIn0.Ss3YuWDLC14fZOCA-wl8PA';
+						// Create a new map.
+						const map = new mapboxgl.Map({
+							container: 'map',
+							style: 'mapbox://styles/sherylwoo2000/ckxhopruuizm814pgx14blmzl',
+							center: [114.188257, 22.634487],
+							zoom: 9
+						});
+
+						map.on('load', () => {
+							// Add a source for the state polygons.
+							map.addSource('district', {
+								'type': 'geojson',
+								'data': 'SZ_District.json'
+							});
+
+							// Add a layer showing the state polygons.
+							map.addLayer({
+								'id': 'district-layer',
+								'type': 'fill',
+								'source': 'district',
+								'paint': {
+									'fill-color': 'rgba(200, 100, 240, 0.4)'
+								}
+							});
+
+							map.addLayer({
+								'id': 'outline',
+								'type': 'line',
+								'source': 'district',
+								'layout': {},
+								'paint': {
+									'line-color': 'rgba(200, 100, 240, 1)',
+									'line-width': 3
+								}
+							});
+
+							// When a click event occurs on a feature in the states layer,
+							// open a popup at the location of the click, with description
+							// HTML from the click event's properties.
+							// create an element with the popup content
+							map.on('click', 'district-layer', (e) => {
+								new mapboxgl.Popup()
+									.setLngLat(e.lngLat)
+
+									.setHTML("<b style=color:black>" + e.features[0].properties.DISTRICT + "</b>")
+
+									.addTo(map);//.setDOMContent(div)
+
+							});
+
+							// Change the cursor to a pointer when
+							// the mouse is over the states layer.
+							map.on('mouseenter', 'district-layer', () => {
+								map.getCanvas().style.cursor = 'pointer';
+							});
+
+							// Change the cursor back to a pointer
+							// when it leaves the states layer.
+							map.on('mouseleave', 'district-layer', () => {
+								map.getCanvas().style.cursor = '';
+							});
+						});
+					</script>
+				</div>
+				<div class="col-lg-6 col-xl-5 wow fadeInUp" style="width:550px">
+					<div class="section-header-4">
+						<h6 class="subtitle text-white fw-normal">&nbsp;About Urban Commuting</h6>
+						<h2 class="title text-white fw-normal"> 城市通勤联系</h2>
+						<br />
+						<!--按钮设置-->
+						<input type="button" onclick="set1()" value="宝安区" class="btnTest" />
+						<input type="button" onclick="set2()" value="大鹏新区" class="btnTest" />
+						<input type="button" onclick="set3()" value="福田区" class="btnTest" />
+						<input type="button" onclick="set4()" value="光明区" class="btnTest" />
+						<input type="button" onclick="set5()" value="龙岗区" class="btnTest" />
+						<input type="button" onclick="set6()" value="龙华区" class="btnTest" />
+						<input type="button" onclick="set7()" value="罗湖区" class="btnTest" />
+						<input type="button" onclick="set8()" value="南山区" class="btnTest" />
+						<input type="button" onclick="set9()" value="坪山区" class="btnTest" />
+						<input type="button" onclick="set10()" value="盐田区" class="btnTest" />
+						<!--图表显示设置-->
+						<div id="1piechart" class=" fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="apiechart2" style="float:left; position: relative;width:280px;height: 220px"></div>
+							<div id="apiechart3" style="float:left; position: relative;width:280px;height: 280px"></div>
+							<div id="apiechart4" style="float:left; position: relative;width:280px;height: 280px"></div>
+						</div>
+						<div id="2piechart" class=" fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="2apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="2apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="2apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="2apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="3piechart" class=" fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="3apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="3apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="3apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="3apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="4piechart" class=" fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="4apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="4apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="4apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="4apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="5piechart" class=" fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="5apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="5apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="5apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="5apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="6piechart" class="fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="6apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="6apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="6apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="6apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="7piechart" class="fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="7apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="7apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="7apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="7apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="8piechart" class="fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="8apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="8apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="8apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="8apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="9piechart" class="fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="9apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="9apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="9apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="9apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div id="10piechart" class="fadeInUp"
+							style="position: relative;width:600px;height:100%;display:none">
+							<br />
+							<div id="10apiechart1" style="float:left; position: relative;width:280px;height: 220px;">
+							</div>
+							<div id="10apiechart2" style="float:left; position: relative;width:280px;height: 220px">
+							</div>
+							<div id="10apiechart3" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+							<div id="10apiechart4" style="float:left; position: relative;width:280px;height: 280px">
+							</div>
+						</div>
+						<div class="tips">点击地图中区县范围查看区名，点击上方按钮查询各区县通勤情况。<br />数据来源：统计年鉴与公报。</div>
+						<!--与按钮联动设置-->
+						<script type="text/javascript">
+							function set1() {
+								document.getElementById("1piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set2() {
+								document.getElementById("2piechart").style.display = 'block';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set3() {
+								document.getElementById("3piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set4() {
+								document.getElementById("4piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set5() {
+								document.getElementById("5piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set6() {
+								document.getElementById("6piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set7() {
+								document.getElementById("7piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set8() {
+								document.getElementById("8piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set9() {
+								document.getElementById("9piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+								document.getElementById("10piechart").style.display = 'none';
+							}
+						</script>
+						<script type="text/javascript">
+							function set10() {
+								document.getElementById("10piechart").style.display = 'block';
+								document.getElementById("2piechart").style.display = 'none';
+								document.getElementById("3piechart").style.display = 'none';
+								document.getElementById("4piechart").style.display = 'none';
+								document.getElementById("5piechart").style.display = 'none';
+								document.getElementById("6piechart").style.display = 'none';
+								document.getElementById("7piechart").style.display = 'none';
+								document.getElementById("8piechart").style.display = 'none';
+								document.getElementById("9piechart").style.display = 'none';
+								document.getElementById("1piechart").style.display = 'none';
+							}
+						</script>
+						<!--各区通勤数据图表-->
+						<!--宝安区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '宝安区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.92, name: '本版块' },
+											{ value: 0.08, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '宝安区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.81, name: '本版块' },
+											{ value: 0.19, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '宝安区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.37, name: '光明区' },
+											{ value: 0.27, name: '南山区' },
+											{ value: 0.18, name: '龙华区' },
+											{ value: 0.08, name: '龙岗区' },
+											{ value: 0.05, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.01, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '宝安区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.06, name: '光明区' },
+											{ value: 0.69, name: '南山区' },
+											{ value: 0.04, name: '龙华区' },
+											{ value: 0.02, name: '龙岗区' },
+											{ value: 0.13, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.02, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--大鹏新区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("2apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '大鹏新区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.81, name: '本版块' },
+											{ value: 0.19, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("2apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '大鹏新区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.88, name: '本版块' },
+											{ value: 0.12, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("2apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '大鹏新区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.02, name: '宝安区' },
+											{ value: 0.04, name: '南山区' },
+											{ value: 0.13, name: '坪山区' },
+											{ value: 0.04, name: '龙华区' },
+											{ value: 0.35, name: '龙岗区' },
+											{ value: 0.23, name: '福田区' },
+											{ value: 0.04, name: '光明区' },
+											{ value: 0.10, name: '罗湖区' },
+											{ value: 0.05, name: '盐田区' },
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("2apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '大鹏新区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.08, name: '罗湖区' },
+											{ value: 0.02, name: '宝安区' },
+											{ value: 0.01, name: '南山区' },
+											{ value: 0.07, name: '福田区' },
+											{ value: 0.22, name: '龙岗区' },
+											{ value: 0.40, name: '坪山区' },
+											{ value: 0.05, name: '光明区' },
+											{ value: 0.14, name: '盐田区' },
+											{ value: 0.01, name: '龙华区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--福田区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("3apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '福田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.60, name: '本版块' },
+											{ value: 0.40, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("3apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '福田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.72, name: '本版块' },
+											{ value: 0.28, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("3apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '福田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.08, name: '宝安区' },
+											{ value: 0.16, name: '南山区' },
+											{ value: 0.26, name: '龙岗区' },
+											{ value: 0.27, name: '龙华区' },
+											{ value: 0.03, name: '大鹏新区' },
+											{ value: 0.20, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("3apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '福田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.06, name: '坪山区' },
+											{ value: 0.04, name: '宝安区' },
+											{ value: 0.42, name: '南山区' },
+											{ value: 0.09, name: '龙岗区' },
+											{ value: 0.05, name: '龙华区' },
+											{ value: 0.34, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--光明区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("4apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '光明区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.89, name: '本版块' },
+											{ value: 0.11, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("4apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '光明区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.83, name: '本版块' },
+											{ value: 0.17, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("4apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '光明区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.61, name: '宝安区' },
+											{ value: 0.08, name: '南山区' },
+											{ value: 0.2, name: '龙华区' },
+											{ value: 0.05, name: '龙岗区' },
+											{ value: 0.02, name: '福田区' },
+											{ value: 0.03, name: '大鹏新区' },
+											{ value: 0.01, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("4apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '光明区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.06, name: '南山区' },
+											{ value: 0.09, name: '龙华区' },
+											{ value: 0.02, name: '龙岗区' },
+											{ value: 0.02, name: '福田区' },
+											{ value: 0.78, name: '宝安区' },
+											{ value: 0.03, name: '盐田区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--龙岗区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("5apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '龙岗区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.84, name: '本版块' },
+											{ value: 0.16, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("5apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '龙岗区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.66, name: '本版块' },
+											{ value: 0.34, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("5apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '龙岗区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.05, name: '宝安区' },
+											{ value: 0.08, name: '南山区' },
+											{ value: 0.01, name: '盐田区' },
+											{ value: 0.44, name: '龙华区' },
+											{ value: 0.13, name: '坪山区' },
+											{ value: 0.08, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.17, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("5apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '龙岗区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.02, name: '坪山区' },
+											{ value: 0.02, name: '宝安区' },
+											{ value: 0.09, name: '南山区' },
+											{ value: 0.33, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.02, name: '盐田区' },
+											{ value: 0.17, name: '龙华区' },
+											{ value: 0.31, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--龙华区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("6apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '龙华区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.84, name: '本版块' },
+											{ value: 0.16, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("6apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '龙华区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.63, name: '本版块' },
+											{ value: 0.37, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("6apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '龙华区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.13, name: '宝安区' },
+											{ value: 0.04, name: '南山区' },
+											{ value: 0.65, name: '龙岗区' },
+											{ value: 0.07, name: '福田区' },
+											{ value: 0.04, name: '光明区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.03, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("6apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '龙华区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.02, name: '光明区' },
+											{ value: 0.21, name: '宝安区' },
+											{ value: 0.16, name: '南山区' },
+											{ value: 0.21, name: '龙岗区' },
+											{ value: 0.44, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.07, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--罗湖区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("7apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '罗湖区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.46, name: '本版块' },
+											{ value: 0.54, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("7apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '罗湖区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.55, name: '本版块' },
+											{ value: 0.45, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("7apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '罗湖区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.03, name: '宝安区' },
+											{ value: 0.06, name: '南山区' },
+											{ value: 0.01, name: '盐田区' },
+											{ value: 0.10, name: '龙华区' },
+											{ value: 0.56, name: '龙岗区' },
+											{ value: 0.20, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("7apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '罗湖区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.03, name: '坪山区' },
+											{ value: 0.01, name: '宝安区' },
+											{ value: 0.10, name: '南山区' },
+											{ value: 0.66, name: '福田区' },
+											{ value: 0.16, name: '龙岗区' },
+											{ value: 0.02, name: '盐田区' },
+											{ value: 0.02, name: '龙华区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--南山区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("8apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '南山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.56, name: '本版块' },
+											{ value: 0.44, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("8apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '南山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.76, name: '本版块' },
+											{ value: 0.24, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("8apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '南山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.55, name: '宝安区' },
+											{ value: 0.13, name: '龙华区' },
+											{ value: 0.10, name: '龙岗区' },
+											{ value: 0.15, name: '福田区' },
+											{ value: 0.03, name: '大鹏新区' },
+											{ value: 0.04, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("8apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '南山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.01, name: '光明区' },
+											{ value: 0.21, name: '宝安区' },
+											{ value: 0.03, name: '龙华区' },
+											{ value: 0.08, name: '龙岗区' },
+											{ value: 0.54, name: '福田区' },
+											{ value: 0.04, name: '大鹏新区' },
+											{ value: 0.09, name: '罗湖区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--坪山区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("9apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '坪山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.90, name: '本版块' },
+											{ value: 0.10, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("9apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '坪山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.85, name: '本版块' },
+											{ value: 0.15, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("9apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '坪山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.06, name: '宝安区' },
+											{ value: 0.04, name: '南山区' },
+											{ value: 0.04, name: '盐田区' },
+											{ value: 0.04, name: '龙华区' },
+											{ value: 0.68, name: '龙岗区' },
+											{ value: 0.03, name: '福田区' },
+											{ value: 0.01, name: '光明区' },
+											{ value: 0.02, name: '罗湖区' },
+											{ value: 0.08, name: '大鹏新区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("9apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '坪山区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.01, name: '罗湖区' },
+											{ value: 0.01, name: '宝安区' },
+											{ value: 0.02, name: '南山区' },
+											{ value: 0.02, name: '福田区' },
+											{ value: 0.84, name: '龙岗区' },
+											{ value: 0.01, name: '盐田区' },
+											{ value: 0.06, name: '光明区' },
+											{ value: 0.02, name: '大鹏新区' },
+											{ value: 0.01, name: '龙华区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<!--盐田区-->
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("10apiechart1");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-板块内外分布',
+									subtext: '盐田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.67, name: '本版块' },
+											{ value: 0.33, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("10apiechart2");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option;
+
+							option = {
+								title: {
+									text: '通勤到达-板块内外分布',
+									subtext: '盐田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.78, name: '本版块' },
+											{ value: 0.22, name: '其他板块' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							if (option && typeof option === 'object') {
+								myChart.setOption(option);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("10apiechart3");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤出发-其他板块分布',
+									subtext: '盐田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.01, name: '宝安区' },
+											{ value: 0.02, name: '南山区' },
+											{ value: 0.01, name: '坪山区' },
+											{ value: 0.03, name: '龙华区' },
+											{ value: 0.56, name: '龙岗区' },
+											{ value: 0.06, name: '福田区' },
+											{ value: 0.05, name: '光明区' },
+											{ value: 0.24, name: '罗湖区' },
+											{ value: 0.02, name: '大鹏新区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+						<script type="text/javascript"
+							src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+						<script type="text/javascript">
+							var dom = document.getElementById("10apiechart4");
+							var myChart = echarts.init(dom);
+							var app = {};
+
+							var option1;
+
+							option1 = {
+								title: {
+									text: '通勤到达-其他板块分布',
+									subtext: '盐田区',
+									left: 'center',
+									textStyle: {
+										color: 'gold'
+									}
+								},
+								tooltip: {
+									trigger: 'item'
+								},
+								series: [
+									{
+										type: 'pie',
+										radius: '50%',
+										data: [
+											{ value: 0.47, name: '罗湖区' },
+											{ value: 0.02, name: '宝安区' },
+											{ value: 0.05, name: '南山区' },
+											{ value: 0.20, name: '福田区' },
+											{ value: 0.17, name: '龙岗区' },
+											{ value: 0.01, name: '坪山区' },
+											{ value: 0.03, name: '光明区' },
+											{ value: 0.03, name: '大鹏新区' },
+											{ value: 0.02, name: '龙华区' }
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+
+							if (option1 && typeof option1 === 'object') {
+								myChart.setOption(option1);
+							}
+						</script>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</section>
+	<!-- Structure Section -->
+	<!--模板JS使用-->
+	<script src="static/js/jquery-3.6.0.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/isotope.pkgd.min.js"></script>
+	<script src="static/js/magnific-popup.min.js"></script>
+	<script src="static/js/wow.min.js"></script>
+	<script src="static/js/viewport.jquery.js"></script>
+	<script src="static/js/nice-select.js"></script>
+	<script src="static/js/owl.min.js"> </script>
+	<script src="static/js/countdown.min.js"></script>
+	<script src="static/js/main.js"></script>
+
+</body>
+
+</html>

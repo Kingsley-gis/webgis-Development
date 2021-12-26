@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>全球四大湾区可视化</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.0.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- <script src="js/script.js"></script> -->
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fontscroll.js"></script>
+    <!-- Echarts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="js/echart.js"></script>
+    <!-- mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- 轮播swiper文件 -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js.map"> </script>
+    <!--界面样式-->
+    <script src="js/detailChart.js"></script>
+    <script>
+        $(function () {
+            $('.myscroll').myScroll({
+                speed: 40, //数值越大，速度越慢
+                rowHeight: 38 //li的高度
+            });
+        })
+
+    </script>
+</head>
+
+<body>
+    <!--头部-->
+    <header id="header">
+        <div class="header">
+            <h1 class="">全球四大湾区轨道交通</h1>
+        </div>
+    </header>
+
+    <!--内容-->
+    <section id="data_content">
+        <div class="data_info">
+            <div class="info_1 fl">
+                <div class="text_1">
+                    <div class="fl">
+                        <img src="images/info_1.png" alt="">
+                        <div class="fl count">
+                            <a href="../index3.html">
+                                <p class="conuts">首页</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" info_2 fl">
+                <div class="text_2">
+                    <div class="fl">
+                        <img src="images/info_5.png" alt="">
+                        <div class="fl count">
+                            <a href="../liang/index.html">
+                                <p class="conuts">粤港澳大湾区通勤总览</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" info_3 fr">
+                <div class="text_2">
+                    <div class="fl">
+                        <img src="images/info_6.png" alt="">
+                        <div class="fl count">
+                            <a href="../Wu/index.html">
+                                <p class="conuts">
+                                    粤港澳大湾区各城市通勤</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data_content">
+            <!--左边-->
+            <div class="data_left fl">
+                <div class="left_top">
+                    <!--左边第一部分-->
+                    <div class="left_bottom public">
+                        <div class="min-title">
+                            <span>关于四大湾区</span>
+                        </div>
+                        <!-- 介绍框 -->
+                        <div class="map-overlay-container">
+                            <div class="map-overlay" style="margin-left: 10px;">
+                                <h2 id="location-title"
+                                    style="color: rgb(0,251,254);font-size: 24px;font-weight: 700px;">
+                                </h2>
+                                <p id="location-description" style="color: white;font-size: 18px;"></p>
+                            </div>
+                        </div>
+                        <div class="boxfoot"></div>
+                    </div>
+                    <!--/*左边第二部分*/-->
+                    <div class="info public">
+                        <div class="min-title">
+                            <span>湾区基本数据</span>
+                        </div>
+                        <div id="char4" style="width:100%;height: 100%;"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+                    <!--左边第三部分-->
+                    <div class="top_bottom public">
+                        <div class="min-title">
+                            <span>湾区线网总量对比</span>
+                        </div>
+                        <div id="echarts_1" style="width:100%;height: 100%;"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                </div>
+            </div>
+            <!--右边-->
+            <div class="data_right fr">
+                <div class="right_top">
+                    <!--右边第一部分-->
+                    <div class="right_content public">
+                        <div class="min-title" style="z-index: 1;">
+                            <span>重要站点客流量</span>
+                        </div>
+                        <div id="chart_3" style="width:100%;height: 100%;"></div>
+                        <script>
+                            var myChart = echarts.init(document.getElementById('chart_3'));
+
+                            var option;
+                            $.getJSON("custom.json", function (data) {
+
+
+                                data = data.filter(function (dataItem) {
+                                    return dataItem[2] > 0;
+                                }).map(function (dataItem) {
+                                    return [dataItem[0], dataItem[1], Math.sqrt(dataItem[2])];
+                                });
+
+                                option = {
+                                    backgroundColor: '#000',
+                                    globe: {
+                                        baseTexture: "images/3D_Earth.png",
+                                        heightTexture: "images/world.topo.bathy.200401.jpg",
+                                        viewControl: {
+                                            distance: 180
+                                        },
+                                        light: {
+                                            ambient: {
+                                                intensity: 1.5
+                                            },
+                                            main: {
+                                                intensity: 2
+                                            }
+                                        }
+                                    },
+
+                                    visualMap: {
+                                        max: 40,
+                                        calculable: true,
+                                        realtime: false,
+                                        inRange: {
+                                            colorLightness: [0.2, 0.9]
+                                        },
+                                        textStyle: {
+                                            color: '#fff'
+                                        },
+                                        controller: {
+                                            inRange: {
+                                                color: '#3A5985'
+                                            }
+                                        },
+                                        outOfRange: {
+                                            colorAlpha: 0
+                                        }
+                                    },
+                                    series: [{
+                                        type: 'bar3D',
+                                        coordinateSystem: 'globe',
+                                        data: data,
+                                        barSize: 1.0,
+                                        minHeight: 0.2,
+
+                                        itemStyle: {
+                                            color: '#3A5985'
+                                        }
+                                    }]
+                                };
+                                // 使用刚指定的配置项和数据显示图表。
+                                myChart.setOption(option);
+                                window.addEventListener("resize", function () {
+                                    myChart.resize();
+                                });
+
+                            });
+                        </script>
+                        <div class="boxfoot"></div>
+                    </div>
+
+                    <!--右边第三部分-->
+                    <div class="right_info public">
+                        <div class="min-title">
+                            <span>四大湾区重要轨道交通线信息</span>
+                        </div>
+                        <div class="echart wenzi">
+                            <div class="gun">
+                                <span>名称</span>
+                                <span>类型</span>
+                                <span>里程</span>
+                            </div>
+                            <div id="FontScroll" class="myscroll">
+                                <ul>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>广佛环线</span>
+                                            <span>粤港澳城际铁路</span>
+                                            <span>127千米</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>南北放射环线</span>
+                                            <span>粤港澳城际铁路</span>
+                                            <span>382千米</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>东西放射环线</span>
+                                            <span>粤港澳城际铁路</span>
+                                            <span>219千米</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>东京丸之内线</span>
+                                            <span>地铁</span>
+                                            <span>24.2千米</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>东京东西线</span>
+                                            <span>地铁</span>
+                                            <span>30.8千米</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>东京有乐町线</span>
+                                            <span>地铁</span>
+                                            <span>28.3千米</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>里奇蒙-费利蒙线</span>
+                                            <span>旧金山BART</span>
+                                            <span>暂无</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>费利蒙-达利市线</span>
+                                            <span>旧金山BART</span>
+                                            <span>暂无</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>纽约百老汇</span>
+                                            <span>Local Service</span>
+                                            <span>暂无</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>纽约第七大道</span>
+                                            <span>Express Service</span>
+                                            <span>暂无</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="fontInner clearfix">
+                                            <span>纽约第六大道</span>
+                                            <span>Express Service</span>
+                                            <span>暂无</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="boxfoot"></div>
+                    </div>
+                    <!--右边第三部分-->
+                    <div class="right_bottom public">
+                        <div class="min-title">
+                            <span>线网规模</span>
+                        </div>
+                        <div id="echarts_2" style="width:100%;height: 100%;padding-top: 10px;"></div>
+                        <div class="boxfoot"></div>
+                    </div>
+                </div>
+            </div>
+            <!--中间-->
+            <div class="data_c fl">
+                <div class="data_c_1">
+                    <div id="contPar" class="contPar">
+                        <div id="page1" style="z-index:1">
+                            <div class="title0">全球湾区轨道网络可视化
+                            </div>
+                            <div class="title1">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary" id="pan1">粤港澳大湾区</button>
+                                    <button type="button" class="btn btn-info" id="pan2">东京湾区</button>
+                                    <button type="button" class="btn btn-success" id="pan3">旧金山湾区</button>
+                                    <button type="button" class="btn btn-warning" id="pan4">纽约湾区</button>
+                                </div>
+                                <!-- 粤港澳大湾区 东京湾区 旧金山湾区 纽约湾区 -->
+                            </div>
+                            <div id="drag-container" style="z-index: 1">
+                                <div id="spin-container">
+                                </div>
+                                <div id="ground"></div>
+                            </div>
+                            <script>
+                                mapboxgl.accessToken = 'pk.eyJ1IjoieG5jaGVuIiwiYSI6ImNrd3FqMnFkMjBsNDkyeG8wNHVsZnNiNmYifQ.-c21hAY1vfEf5Ca4nDqWGw';
+                                const map = new mapboxgl.Map({
+                                    container: 'drag-container', // container ID
+                                    style: 'mapbox://styles/mapbox/dark-v10', // style URL
+                                    center: [113.5654674027, 23.0426077720], // starting position [lng, lat]
+                                    // starting zoom
+                                    maxZoom: 16,
+                                    minZoom: 5,
+                                    zoom: 9.68
+                                });
+
+                                var url = 'Gobal.json';
+
+                                const title = document.getElementById('location-title');
+                                const description = document.getElementById('location-description');
+
+                                const locations = [
+
+                                    {
+                                        'id': '4',
+                                        'title': '东京湾区',
+                                        'description':
+                                            "日本首都（非日本法律定义），位于日本关东平原中部，是面向东京湾的国际大都市，日本三大都市圈之一东京都市圈的中心城市。",
+                                        'camera': {
+                                            center: [139.8796968505, 35.7524593827],
+                                            bearing: -8.9,
+                                            zoom: 8
+                                        }
+                                    },
+                                    {
+                                        'id': '2',
+                                        'title': '旧金山湾区',
+                                        'description':
+                                            '又译“三藩市”、“圣弗朗西斯科”，美国加利福尼亚州太平洋沿岸的港口城市，是世界著名旅游胜地、加州人口第四大城市。 旧金山临近世界著名技术产业区硅谷，是世界重要的技术研发基地之一和美国西海岸重要的金融中心，也是联合国的诞生地（1945年《联合国宪章》）。',
+                                        'camera': {
+                                            center: [-121.4888081919, 39.5568829319],
+                                            zoom: 5.5,
+                                            bearing: 0,
+                                            pitch: 50
+                                        }
+                                    },
+                                    {
+                                        'id': '3',
+                                        'title': '纽约湾区',
+                                        'description':
+                                            '纽约市（New York City，简称：NYC），位于美国纽约州东南部大西洋沿岸，是美国第一大城市及第一大港口，纽约都市圈为世界上最大的城市圈之一，与英国伦敦、中国香港并称为“纽伦港”（Nylonkong）。 纽约与伦敦并列为全世界最顶级的国际大都市。',
+                                        'camera': {
+                                            center: [-75.5002927619, 42.8494329846],
+                                            bearing: 25.3,
+                                            zoom: 6
+                                        }
+                                    },
+                                    {
+                                        'title': '粤港澳大湾区',
+                                        'description':
+                                            "英文名Guangdong-Hong Kong-Macao Greater Bay Area，缩写GBA,由香港、澳门两个特别行政区和广东省广州、深圳、珠海、佛山、惠州、东莞、中山、江门、肇庆九个珠三角城市组成，总面积5.6万平方公里。",
+                                        'camera': {
+                                            center: [113.5654674027, 23.0426077720],
+                                            zoom: 8,
+                                            pitch: 50
+                                        }
+                                    },
+                                ];
+
+                                function playback(index) {
+                                    title.textContent = locations[index].title;
+                                    description.textContent = locations[index].description;
+
+                                    // Animate the map position based on camera properties.
+                                    map.flyTo(locations[index].camera);
+
+                                    map.once('moveend', () => {
+                                        // Duration the slide is on screen after interaction.
+                                        window.setTimeout(() => {
+                                            // Increment index, looping back to the first after the last location.
+                                            index = (index + 1) % locations.length;
+                                            playback(index);
+                                        }, 8000); // After callback, show the location for 8 seconds.
+                                    });
+                                }
+
+                                // Display the last title/description first.
+                                title.textContent = locations[locations.length - 1].title;
+                                description.textContent = locations[locations.length - 1].description;
+
+                                //正常显示
+                                map.on('load', () => {
+                                    map.addSource('route', {
+                                        'type': 'geojson',
+                                        data: url,
+                                        lineMetrics: true,
+                                    });
+                                    map.addLayer({
+                                        'id': 'route',
+                                        'type': 'line',
+                                        'source': 'route',
+                                        'layout': {
+                                            'line-join': 'round',
+                                            'line-cap': 'round'
+                                        },
+                                        'paint': {
+                                            'line-color': 'rgb(0, 204, 204)',
+                                            'line-width': 8,
+                                            //距离用颜色深浅表示，addsource一定要加lineMetrics: true,
+                                            'line-gradient': [
+                                                'interpolate',
+                                                ['linear'],
+                                                ['line-progress'],
+                                                0,
+                                                '#F1F5FD',
+                                                0.1,
+                                                '#D5DEEF',
+                                                0.3,
+                                                '#B2CAED',
+                                                0.5,
+                                                '#88AFDF',
+                                                0.7,
+                                                '#628FCB',
+                                                1,
+                                                '#3A5985'
+                                            ]
+                                        }
+                                    });
+                                    playback(0);
+                                });
+                                // Start the playback animation for each borough.
+
+
+                                //添加图片标签
+                                //Sanfrancsco
+                                const monumentsan = [-121.4888081919, 39.5568829319];
+                                // create the popup
+                                const popupsan = new mapboxgl.Popup({ offset: 25 }).setText(
+                                    '旧金山湾区的线网密度(km/km²):  城际铁路:2.85  市域铁路:4.93  地铁:1.72'
+                                );
+                                // create DOM element for the marker
+                                var mapbox = document.getElementById('drag-container');
+                                const elSan = document.createElement('div');
+                                mapbox.appendChild(elSan);
+                                elSan.setAttribute('id', 'markerSanFrancico');
+                                // create the marker
+                                new mapboxgl.Marker(elSan)
+                                    .setLngLat(monumentsan)
+                                    .setPopup(popupsan) // sets a popup on this marker
+                                    .addTo(map);
+
+                                //GBA
+                                const monumentgba = [113.5654674027, 23.0426077720];
+                                // create the popup
+                                const popupgba = new mapboxgl.Popup({ offset: 25 }).setText(
+                                    '粤港澳大湾区的线网密度(km/km²):  高速铁路:1.8  普速铁路:1.4  城际铁路:0.65  市域铁路:0.06  地铁:1.72'
+                                );
+                                // create DOM element for the marker
+                                var mapbox = document.getElementById('drag-container');
+                                const elgba = document.createElement('div');
+                                mapbox.appendChild(elgba);
+                                elgba.setAttribute('id', 'markergba');
+                                // create the marker
+                                new mapboxgl.Marker(elgba)
+                                    .setLngLat(monumentgba)
+                                    .setPopup(popupgba) // sets a popup on this marker
+                                    .addTo(map);
+
+                                //Tokyo
+                                const monumenttokyo = [139.8796968505, 35.7524593827];
+                                // create the popup
+                                const popuptokyo = new mapboxgl.Popup({ offset: 25 }).setText(
+                                    '东京湾区的线网密度(km/km²): 高速铁路:1.7  城际铁路:11.57  市域铁路:13.1  地铁:2.67'
+                                );
+                                // create DOM element for the marker
+                                const eltokyo = document.createElement('div');
+                                mapbox.appendChild(eltokyo);
+                                eltokyo.setAttribute('id', 'markerTokyo');
+                                // create the marker
+                                new mapboxgl.Marker(eltokyo)
+                                    .setLngLat(monumenttokyo)
+                                    .setPopup(popuptokyo) // sets a popup on this marker
+                                    .addTo(map);
+
+                                //NewYork
+                                const monumentnewyork = [-75.5002927619, 42.8494329846];
+                                // create the popup
+                                const popupnewyork = new mapboxgl.Popup({ offset: 25 }).setText(
+                                    '纽约湾区的线网密度(km/km²):  城际铁路:15.11  市域铁路:24.69  地铁:1.77'
+                                );
+                                // create DOM element for the marker
+                                const elnewyork = document.createElement('div');
+                                mapbox.appendChild(elnewyork);
+                                elnewyork.setAttribute('id', 'markerNewYork');
+                                // create the marker
+                                new mapboxgl.Marker(elnewyork)
+                                    .setLngLat(monumentnewyork)
+                                    .setPopup(popupnewyork) // sets a popup on this marker
+                                    .addTo(map);
+                                document.getElementById('pan1').addEventListener('click', () => {
+                                    map.flyTo({
+                                        center: [
+                                            113.5654674027, 23.0426077720
+                                        ],
+                                        // essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                                    });
+                                    map.addLayer
+                                });
+                                //按键切换中心
+                                document.getElementById('pan2').addEventListener('click', () => {
+                                    map.flyTo({
+                                        center: [
+                                            139.8796968505, 35.7524593827
+                                        ],
+                                        // essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                                    });
+                                    map.addLayer
+                                });
+                                document.getElementById('pan3').addEventListener('click', () => {
+                                    map.flyTo({
+                                        center: [
+                                            -121.4888081919, 39.5568829319
+                                        ],
+                                        // essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                                    });
+                                    map.addLayer
+                                });
+                                document.getElementById('pan4').addEventListener('click', () => {
+                                    map.flyTo({
+                                        center: [
+                                            -75.5002927619, 42.8494329846
+                                        ],
+                                        // essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                                    });
+                                    map.addLayer
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="data_c_2 public">
+                    <div class="min-title" style="z-index: 1;">
+                        <span>人均里程</span>
+                    </div>
+                    <div class="swiper-container visual_swiper1 visual_chart"
+                        style="z-index: 1;overflow: hidden;height: 250px;width: 640px;margin: 0 auto;">
+                        <div class="swiper-wrapper" style="z-index: 1;display: flex;height: 100%;width: 100%;">
+                            <div class="swiper-slide" id="main3"></div>
+                            <div class="swiper-slide" id="main31"></div>
+                            <div class="swiper-slide" id="main32"></div>
+                            <div class="swiper-slide" id="main33"></div>
+                            <div class="swiper-slide" id="main34"></div>
+                        </div>
+                    </div>
+                    <div class="boxfoot"></div>
+                </div>
+                <script>
+                    // $(function () {
+                    //     var a = $('.visualSssf_left a')
+                    //     for (var i = 0; i < a.length; i++) {
+                    //         a[i].index = i;
+                    //         a[i].onclick = function () {
+                    //             for (var i = 0; i < a.length; i++) {
+                    //                 a[i].className = ''
+                    //             }
+                    //             this.className = 'active'
+                    //         }
+                    //     }
+
+                    //     var sfzcllH = $('.sfzcll_box').height()
+                    //     var sfzcllHtwo = sfzcllH - 2
+                    //     $('.sfzcll_box').css('line-height', sfzcllH + 'px')
+                    //     $('.sfzcll_smallBk>div').css('line-height', sfzcllHtwo + 'px')
+
+                    //     //删除加载动画
+                    //     $('#load').fadeOut(1000)
+                    //     setTimeout(function () {
+                    //         $('#load').remove()
+                    //     }
+                    //         , 1100);
+                    // })
+                    //人均里程
+                    var myChart3 = echarts.init(document.getElementById('main3'));
+                    myChart3.setOption(option3);
+                    var myChart31 = echarts.init(document.getElementById('main31'));
+                    myChart31.setOption(option31);
+                    var myChart31 = echarts.init(document.getElementById('main32'));
+                    myChart31.setOption(option32);
+                    var myChart31 = echarts.init(document.getElementById('main33'));
+                    myChart31.setOption(option33);
+                    var myChart31 = echarts.init(document.getElementById('main34'));
+                    myChart31.setOption(option34);
+                    var mySwiper1 = new Swiper('.visual_swiper1', {
+                        autoplay: true,//可选选项，自动滑动
+                        speed: 800,//可选选项，滑动速度
+                        autoplay: {
+                            delay: 5000,//1秒切换一次
+                        },
+                    })
+                </script>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
